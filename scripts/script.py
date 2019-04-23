@@ -19,4 +19,5 @@ if __name__ == "__main__":
 	plt.ylabel('Pitch (hz)')
 	plt.title('Pitch over time')
 	plt.savefig('person_name.png')
+	print('$')
 	print(pred_UPDRS)

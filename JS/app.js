@@ -107,17 +107,34 @@ function createDownloadLink(blob) {
     //upload link
     var upload = uploadButton;
     upload.addEventListener("click", function(event){
-          var xhr=new XMLHttpRequest();
-          xhr.onload=function(e) {
-              if(this.readyState === 4) {
-                  console.log("Server returned: ",e.target.responseText);
-              }
-          };
-          var fd=new FormData();
-          fd.append("audio_data",blob, filename);
-          xhr.open("POST","upload.php",true);
-          xhr.send(fd);
-    })
+      var xhr=new XMLHttpRequest();
+      xhr.onload=function(e) {
+          if(this.readyState === 4) {
+            beginButton.innerHTML = "Begin";
+            console.log("Server returned: ",e.target.responseText);
+               if(parseFloat(e.target.responseText) > 10){
+                console.log("double bruh");
+                tendency.innerHTML = "You are at a high risk for Parkinson's Disease";
+                parkinsonnumber.innerHTML = "Your VerbalHealth score: "+ e.target.responseText;
+                tendencyp.innerHTML = "We recommend you contact a licensed neurologist"; 
+            }else{
+                console.log("bruh");
+               tendency.innerHTML = "You are at a low risk for Parkinson's Disease";
+               parkinsonnumber.innerHTML = "Your VerbalHealth score: "+ e.target.responseText;
+               tendencyp.innerHTML = "We don't believe there is any cause for alarm, but make sure to come back and recheck your VerbalHealth score often!"; 
+           }
+           $("#resultsModal").modal();
+
+       }
+   };
+   var fd=new FormData();
+   fd.append("audio_data",blob, filename);
+   xhr.open("POST","upload.php",true);
+   xhr.send(fd);
+   beginButton.innerHTML = "Loading...";
+
+
+})
     //li.appendChild(document.createTextNode (" "))//add a space in between
     //li.appendChild(upload)//add the upload link to li
     

@@ -13,8 +13,11 @@
 <body>
 
   <div class="jumbotron text-center">
-    <h1>Parkinson's Detection</h1>
-  </div>
+        <h1>Verbal Health</h1>
+        <h3>Parkinson's Detection</h3>    
+    </div>
+  
+
   
   <div class="container">
     <div class="row">
@@ -31,10 +34,21 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center">
+        <div class="col-sm-12 text-center">
+        <br>
         <h3>Begin Speech Analysis</h3>
-        <button type="button" id="beginButton" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Begin</button>
-      </div>
+        <button type="button" id="beginButton" data-toggle="modal" data-target="#myModal" class="btn-block btn-primary btn-lg">Begin</button>
+      </div>  
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+          <br><br><br>
+          <img class="img-responsive" src="/logo.png" alt="">
+        </div>    
+
     </div>
   </div>
 
@@ -65,5 +79,35 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-</body>
-</html>
+
+
+
+  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Results</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 text-center">
+               <h3 id="tendency"></h3>
+               <h5 id="parkinsonnumber"></h5>
+               <p id="tendencyp">Seek help yo</p>
+              </div>
+              <div class="col-lg-6 text-center">
+                <img src="/person_name.png" class="img-fluid" alt="Responsive image">
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </body>
+  </html>
