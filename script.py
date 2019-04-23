@@ -13,6 +13,10 @@ if __name__ == "__main__":
 	pitchY = pYAAPT.yaapt(signal, frame_length=40, tda_frame_length=40, f0_min=75, f0_max=600)
 	#get values
 	val = pitchY.values_interp
-	pred_UPDRS = 15.82 - 0.376 * np.median(val) + 0.305 * val.mean() \
-                     - .024 * val.std()-.005 * val.max()
+	pred_UPDRS = 15.82 - 0.376 * np.median(val) + 0.305 * val.mean() - .024 * val.std()-.005 * val.max()
+	plt.plot(val)
+	plt.xlabel('Nanoseconds')
+	plt.ylabel('Pitch (hz)')
+	plt.title('Pitch over time')
+	plt.savefig('person_name.png')
 	print(pred_UPDRS)
